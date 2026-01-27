@@ -41,7 +41,7 @@ export default function Hero() {
         animate="show"
       >
         <motion.h1 variants={item} className="text-5xl md:text-7xl font-bold">
-          I am Akhil Panwar
+          Hi, I’m Akhil Panwar 👋
         </motion.h1>
 
         <motion.p variants={item} className="mt-4 text-xl text-slate-300">
