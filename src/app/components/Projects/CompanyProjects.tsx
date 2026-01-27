@@ -14,7 +14,7 @@ const companyProjects = [
   {
     name: "Umaid CF",
     url: "https://www.umaidcf.in/",
-    img: "/umaidcf.jpg",
+    img: "/umaidCf.png",
     description:
       "Contributed to the frontend of a community funding platform with focus on UI and usability.",
   },
