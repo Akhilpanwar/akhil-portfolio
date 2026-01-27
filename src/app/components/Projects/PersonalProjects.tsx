@@ -32,6 +32,13 @@ const personalProjects = [
     description:
       "A Gemini-inspired application with OTP-based authentication. For demo purposes, the OTP can be viewed in the browser console during login, showcasing the complete authentication flow and frontend handling.",
   },
+  {
+    name: "Task Manager",
+    url: "https://task-manager-seven-woad-54.vercel.app/",
+    img: "/task-manager.jpg",
+    description:
+      "A fully functional Task Manager where you can add, edit, and delete tasks. Tasks are categorized by priority (High, Medium, Low) with different colors for each priority level. Built with React, Next.js, and Tailwind CSS.",
+  },
 ];
 
 export default function PersonalProjects() {
