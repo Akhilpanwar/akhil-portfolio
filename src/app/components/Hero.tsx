@@ -28,7 +28,7 @@ export default function Hero() {
       <motion.img
         src="/profile.jpg"
         alt="Profile"
-        className="w-40 h-40 rounded-full object-cover mb-6 border-4 border-slate-600"
+        className="w-80 h-80 rounded-full object-cover mb-6 border-4 border-slate-600"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
@@ -44,7 +44,7 @@ export default function Hero() {
           Hi, I’m Akhil Panwar 👋
         </motion.h1>
 
-        <motion.p variants={item} className="mt-4 text-xl text-slate-300">
+        <motion.p variants={item} className="mt-4 text-2xl text-slate-300">
           Frontend Developer • React • TypeScript
         </motion.p>
       </motion.div>
