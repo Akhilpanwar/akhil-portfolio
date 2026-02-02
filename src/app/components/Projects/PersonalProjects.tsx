@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-
+import { LiveDemoButton } from "./LiveDemo";
 const personalProjects = [
   {
     name: "Dynamic Dashboard",
@@ -27,7 +26,7 @@ const personalProjects = [
   },
   {
     name: "gemini-clone",
-    url: "https://gemini-app-tau-six.vercel.app/Register",
+    url: "https://gemini-1cfyvmmb8-akhilpanwars-projects.vercel.app/Register",
     img: "/gemini.jpg",
     description:
       "A Gemini-inspired application with OTP-based authentication. For demo purposes, the OTP can be viewed in the browser console during login, showcasing the complete authentication flow and frontend handling.",
@@ -44,34 +43,65 @@ const personalProjects = [
 export default function PersonalProjects() {
   return (
     <section id="personal-projects" className="py-24 px-6">
-      <h2 className="text-4xl font-bold text-center mb-4">
+      <motion.h2
+        className="text-4xl font-bold text-center mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
         My Personal Projects
-      </h2>
-      <p className="text-center text-slate-400 mb-12">
+      </motion.h2>
+
+      <motion.p
+        className="text-center text-slate-400 mb-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
         Self-initiated projects built to learn, experiment, and improve
-      </p>
+      </motion.p>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-        {personalProjects.map((p) => (
+        {personalProjects.map((p, index) => (
           <motion.div
             key={p.name}
-            whileHover={{ scale: 1.05 }}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 18,
+              delay: index * 0.1,
+            }}
+            whileHover={{ y: -10, scale: 1.03 }}
+            className="group relative bg-slate-900 rounded-2xl overflow-hidden border border-white/10 shadow-lg"
           >
-            <Link href={p.url} target="_blank">
-              <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="h-40 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
-                  <p className="text-slate-400 text-sm">{p.description}</p>
-                </div>
-              </div>
-            </Link>
+            {/* Image */}
+            <div className="overflow-hidden">
+              <motion.img
+                src={p.img}
+                alt={p.name}
+                className="h-40 w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col gap-4">
+              <h3 className="text-xl font-semibold">{p.name}</h3>
+              <p className="text-slate-400 text-sm line-clamp-3">
+                {p.description}
+              </p>
+
+              {/* Live Demo Button */}
+              <LiveDemoButton url={p.url} />
+            </div>
+
+            {/* Glow */}
+            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
           </motion.div>
         ))}
       </div>

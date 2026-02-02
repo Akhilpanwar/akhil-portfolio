@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { LiveDemoButton } from "./LiveDemo";
 
 const companyProjects = [
   {
@@ -44,39 +44,70 @@ const companyProjects = [
 export default function CompanyProjects() {
   return (
     <section id="company-projects" className="bg-black/40 py-24 px-6">
-      <h2 className="text-4xl font-bold text-center mb-4">Company Projects</h2>
-      <p className="text-center text-slate-400 mb-12">
+      <motion.h2
+        className="text-4xl font-bold text-center mb-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        Company Projects
+      </motion.h2>
+
+      <motion.p
+        className="text-center text-slate-400 mb-12"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+      >
         Projects I worked on professionally as a Frontend Developer
-      </p>
+      </motion.p>
 
       <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-8">
         {companyProjects.map((p, i) => (
           <motion.div
             key={p.name}
-            className="flex-1 min-w-[280px] max-w-sm"
-            whileHover={{ y: -8, scale: 1.05 }}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{
               type: "spring",
               stiffness: 120,
-              damping: 12,
+              damping: 18,
               delay: i * 0.1,
             }}
+            whileHover={{ y: -10, scale: 1.03 }}
+            className="group relative flex-1 min-w-[280px] max-w-sm bg-slate-900
+              rounded-2xl overflow-hidden border border-white/10 shadow-lg"
           >
-            <Link href={p.url} target="_blank">
-              <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
-                <img
-                  src={p.img}
-                  alt={p.name}
-                  className="h-40 w-full object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">{p.name}</h3>
-                  <p className="text-slate-400 text-sm">{p.description}</p>
-                </div>
-              </div>
-            </Link>
+            {/* Image */}
+            <div className="overflow-hidden">
+              <motion.img
+                src={p.img}
+                alt={p.name}
+                className="h-40 w-full object-cover"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="p-6 flex flex-col gap-4">
+              <h3 className="text-xl font-semibold">{p.name}</h3>
+              <p className="text-slate-400 text-sm line-clamp-3">
+                {p.description}
+              </p>
+
+              {/* Live Demo Button */}
+              <LiveDemoButton url={p.url} />
+            </div>
+
+            {/* Glow Overlay */}
+            <div
+              className="pointer-events-none absolute inset-0 rounded-2xl
+              bg-gradient-to-br from-cyan-500/10 via-transparent to-purple-500/10
+              opacity-0 group-hover:opacity-100 transition-opacity"
+            />
           </motion.div>
         ))}
       </div>

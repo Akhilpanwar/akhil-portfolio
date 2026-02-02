@@ -24,17 +24,21 @@ export default function Header() {
 
   return (
     <motion.header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 shadow-md" : "bg-red"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      className={`sticky w-full top-0 z-50 transition-all duration-300 
+    ${
+      scrolled
+        ? "bg-black/80 backdrop-blur-md shadow-md border-b border-white/10"
+        : "bg-transparent border-b border-white/20"
+    }
+  `}
+      initial={{ y: -1 }}
+      animate={{ y: 3 }}
       transition={{ type: "spring", stiffness: 120 }}
     >
       <div className="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-        {/* Logo / Name */}
+        {/* Logo */}
         <motion.div
-          className="text-xl font-bold cursor-pointer"
+          className="text-xl font-bold cursor-pointer text-white"
           whileHover={{ scale: 1.1 }}
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
@@ -44,7 +48,7 @@ export default function Header() {
         {/* Navigation */}
         <nav>
           <ul className="flex gap-6">
-            {navItems.map((item, i) => (
+            {navItems.map((item) => (
               <motion.li
                 key={item.name}
                 whileHover={{ y: -2, scale: 1.05 }}
