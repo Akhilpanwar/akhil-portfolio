@@ -19,7 +19,7 @@ export default function MainPage() {
       <AnimatePresence>
         {showSplash && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+            className="fixed inset-0   bg-red! flex items-center justify-center bg-black"
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{

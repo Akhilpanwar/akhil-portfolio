@@ -12,7 +12,7 @@ const personalProjects = [
   },
   {
     name: "Cat Generator",
-    url: "https://catworld-44ql5qdnz-akhilpanwars-projects.vercel.app/",
+    url: "https://catworld.vercel.app",
     img: "/cat-generator.jpg",
     description:
       "A personal project that fetches random cat images using public APIs, displaying breed details such as name, origin, temperament, and lifespan. Built to practice async handling, API integration, and dynamic UI rendering in React.",
@@ -26,7 +26,7 @@ const personalProjects = [
   },
   {
     name: "gemini-clone",
-    url: "https://gemini-1cfyvmmb8-akhilpanwars-projects.vercel.app/Register",
+    url: "https://gemini-app-12e3.vercel.app",
     img: "/gemini.jpg",
     description:
       "A Gemini-inspired application with OTP-based authentication. For demo purposes, the OTP can be viewed in the browser console during login, showcasing the complete authentication flow and frontend handling.",
