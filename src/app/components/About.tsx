@@ -18,7 +18,7 @@ const fadeInRight = {
 
 export default function About() {
   const paragraphs = [
-    "I’m a frontend developer with 3+ years of experience building scalable, responsive, and user-focused web applications using React, Next.js, and TypeScript.",
+    "I’m a frontend developer with 4 years of experience building scalable, responsive, and user-focused web applications using React, Next.js, and TypeScript.",
     "I have hands-on experience with Redux Toolkit, Git, Material UI, Tailwind CSS, and Framer Motion, and I enjoy crafting clean UI architectures with smooth animations and predictable state management.",
     "I focus on writing maintainable, reusable components, collaborating efficiently using Git, and delivering performance-optimized interfaces that provide a great user experience across devices.",
   ];
