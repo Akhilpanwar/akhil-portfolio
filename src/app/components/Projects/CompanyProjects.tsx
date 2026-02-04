@@ -18,26 +18,13 @@ const companyProjects = [
     description:
       "Contributed to the frontend of a community funding platform with focus on UI and usability.",
   },
-  {
-    name: "MRPropTek",
-    url: "https://mrproptek.com/",
-    img: "/mrproptek.jpg",
-    description:
-      "Developed and maintained responsive UI for a real-estate technology website.",
-  },
+
   {
     name: "Stusphere SIS",
     url: "https://stusphere.org/sis/",
     img: "/stusphere.png",
     description:
       "Worked on a Student Information System with dashboards and role-based views.",
-  },
-  {
-    name: "SpaceHero",
-    url: "https://spacehero.in/",
-    img: "/spacehero.png",
-    description:
-      "Built interactive and animated UI components for a valet web platform.",
   },
 ];
 
