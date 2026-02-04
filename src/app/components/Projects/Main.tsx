@@ -1,34 +1,46 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "../Header";
 import Hero from "../Hero";
-import About from "../About";
-import CompanyProjects from "../Projects/CompanyProjects";
-import PersonalProjects from "../Projects/PersonalProjects";
-import Contact from "../Contact";
+
+/* ---------------- Lazy Loaded Sections (Below the fold) ---------------- */
+
+const About = dynamic(() => import("../About"), { ssr: false });
+const SkillsSection = dynamic(() => import("./SkillsSections"), { ssr: false });
+const CompanyProjects = dynamic(() => import("../Projects/CompanyProjects"), {
+  ssr: false,
+});
+const PersonalProjects = dynamic(() => import("../Projects/PersonalProjects"), {
+  ssr: false,
+});
+const ResumeSection = dynamic(() => import("./ResumeSection"), {
+  ssr: false,
+});
+const Contact = dynamic(() => import("../Contact"), { ssr: false });
+
+/* ---------------------------------------------------------------------- */
 
 export default function MainPage() {
   const [showSplash, setShowSplash] = useState(true);
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-black via-slate-900 to-slate-800 text-white overflow-hidden">
-      {/* Splash Screen */}
+    <main className="min-h-screen bg-linear-to-br from-black via-slate-900 to-slate-800 text-white">
+      {/* ---------------- Splash Screen ---------------- */}
       <AnimatePresence>
         {showSplash && (
           <motion.div
-            className="fixed inset-0   bg-red! flex items-center justify-center bg-black"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black"
             initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{
               y: "-100%",
-              transition: { duration: 1, ease: "easeInOut" },
+              transition: { duration: 1, delay: 0.8, ease: "easeInOut" },
             }}
-            onAnimationComplete={() => {
-              setTimeout(() => setShowSplash(false), 800);
-            }}
+            onAnimationComplete={() => setShowSplash(false)}
           >
             <motion.h1
               className="text-4xl md:text-6xl font-bold tracking-wide text-center"
@@ -42,21 +54,22 @@ export default function MainPage() {
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
+      {/* ---------------- Main Content ---------------- */}
       {!showSplash && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
+        <div className="fade-in">
           <Header />
 
+          {/* Critical (Above the fold) */}
           <Hero />
+
+          {/* Below the fold (Lazy loaded) */}
           <About />
+          <SkillsSection />
           <CompanyProjects />
           <PersonalProjects />
+          <ResumeSection />
           <Contact />
-        </motion.div>
+        </div>
       )}
     </main>
   );

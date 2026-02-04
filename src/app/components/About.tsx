@@ -18,9 +18,13 @@ const fadeInRight = {
 
 export default function About() {
   const paragraphs = [
-    "I’m a frontend developer with 4 years of experience building scalable, responsive, and user-focused web applications using React, Next.js, and TypeScript.",
-    "I have hands-on experience with Redux Toolkit, Git,ant-design, Material UI, Tailwind CSS, and Framer Motion, and I enjoy crafting clean UI architectures with smooth animations and predictable state management.",
-    "I focus on writing maintainable, reusable components, collaborating efficiently using Git, and delivering performance-optimized interfaces that provide a great user experience across devices.",
+    `
+Frontend Developer with 4 years of experience building scalable, responsive, and high-performance web applications using React.js, Next.js, JavaScript (ES6+), HTML5, and CSS3. Strong expertise in React Hooks, component-driven architecture, and Redux Toolkit for predictable state management.
+
+Hands-on experience working with UI libraries such as Ant Design (Antd), Material UI, and Tailwind CSS, focusing on clean UI design, accessibility, and reusable components. Skilled in REST API integration, performance optimization, and debugging using browser DevTools to deliver smooth and user-focused interfaces.
+
+Proficient in testing with Jest, version control using Git, and working in Agile environments with Jira. Passionate about building maintainable codebases, collaborating efficiently with cross-functional teams, and delivering performance-optimized frontend solutions across devices.
+`,
   ];
 
   return (
