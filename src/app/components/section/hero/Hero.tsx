@@ -23,12 +23,12 @@ export default function Hero() {
   return (
     <section
       id="Hero"
-      className="h-screen flex flex-col items-center justify-center text-center px-6"
+      className="md:h-screen flex flex-col items-center md:pt-0 md:items-center md:justify-center text-center px-6"
     >
       <motion.img
-        src="/profile.jpg"
+        src="./profile/profile.jpg"
         alt="Profile"
-        className="w-80 h-80 rounded-full object-cover mb-6 border-4 border-slate-600"
+        className="md:w-80 md:h-80 w-30 h-30 rounded-full justify-center object-cover mb-6 border-4 border-slate-600"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.8, type: "spring", stiffness: 100 }}

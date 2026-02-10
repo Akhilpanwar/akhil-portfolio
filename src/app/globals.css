@@ -1,17 +1,27 @@
 @import "tailwindcss";
 
+/* =========================
+   CSS Variables (Theme)
+========================= */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* layout */
+  --container-max: 72rem; /* 1152px */
 }
 
+/* Tailwind inline theme mapping */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, monospace);
 }
 
+/* =========================
+   Dark Mode
+========================= */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,30 +29,140 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+/* =========================
+   Base Styles
+========================= */
 html {
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
+body {
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   Layout Containers
+========================= */
 section {
-  scroll-margin-top: 96px; /* fixes header overlap */
+  scroll-margin-top: 88px; /* fixed header */
+  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-inline: clamp(1rem, 4vw, 1.5rem);
 }
 
-/* Lightweight fade-in (cheaper than Framer for wrappers) */
+.section-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+/* =========================
+   Responsive Typography
+========================= */
+h1 {
+  font-size: clamp(2.2rem, 7vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+/* Section headings */
+h2 {
+  font-size: clamp(1.8rem, 4.8vw, 3.2rem);
+  line-height: 1.15;
+  margin-bottom: 0.75em;
+}
+
+/* Sub-headings */
+h3 {
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  line-height: 1.25;
+}
+
+/* Body text */
+p {
+  font-size: clamp(1.05rem, 1.4vw, 1.15rem);
+  line-height: 1.75;
+  max-width: 65ch;
+  opacity: 0.92;
+}
+
+/* Small supporting text */
+small,
+.text-muted {
+  font-size: clamp(0.9rem, 1.1vw, 0.95rem);
+  opacity: 0.75;
+}
+
+/* =========================
+   Device-Specific Tweaks
+========================= */
+
+/* 📱 Mobile (<= 640px) */
+@media (max-width: 640px) {
+  body {
+    line-height: 1.7;
+  }
+
+  section {
+    padding-block: 3rem;
+  }
+
+  p {
+    max-width: 100%;
+  }
+}
+
+/* 📱➡️📲 Tablet (641px – 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  section {
+    padding-block: 4.5rem;
+  }
+}
+
+/* 💻 Laptop (1025px – 1440px) */
+@media (min-width: 1025px) {
+  section {
+    padding-block: 6rem;
+  }
+}
+
+/* 🖥️ Large Screens */
+@media (min-width: 1536px) {
+  :root {
+    --container-max: 80rem; /* 1280px */
+  }
+}
+
+/* =========================
+   Animations
+========================= */
 .fade-in {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn 0.6s ease-out both;
 }
 
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================
+   Keyframes
+========================= */
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }

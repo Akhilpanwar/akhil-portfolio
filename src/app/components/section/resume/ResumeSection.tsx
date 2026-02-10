@@ -19,7 +19,7 @@ export default function ResumeSection() {
         </p>
 
         <a
-          href="./Akhil_CV.docx"
+          href="./profile/Akhil_CV.docx"
           download
           className="inline-flex items-center gap-3 px-6 py-3
           rounded-full bg-cyan-500 hover:bg-cyan-400

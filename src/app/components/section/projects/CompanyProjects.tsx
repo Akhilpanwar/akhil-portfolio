@@ -1,20 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LiveDemoButton } from "./LiveDemo";
+import { LiveDemoButton } from "../../ui/LiveDemo";
 
 const companyProjects = [
   {
     name: "VoicePing",
     url: "https://voiceping.net/en/",
-    img: "/voiceping.jpg",
+    img: "./images/projects/voiceping.jpg",
     description:
       "Worked as a Frontend Developer on a real-time voice and audio conferencing platform.",
   },
   {
     name: "Umaid CF",
     url: "https://www.umaidcf.in/",
-    img: "/umaidCf.png",
+    img: "./images/projects/umaidCf.png",
     description:
       "Contributed to the frontend of a community funding platform with focus on UI and usability.",
   },
@@ -22,7 +22,7 @@ const companyProjects = [
   {
     name: "Stusphere SIS",
     url: "https://stusphere.org/sis/",
-    img: "/stusphere.png",
+    img: "./images/projects/stusphere.png",
     description:
       "Worked on a Student Information System with dashboards and role-based views.",
   },

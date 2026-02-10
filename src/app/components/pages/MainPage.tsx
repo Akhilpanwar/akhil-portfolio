@@ -1,28 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
-
-import Header from "../Header";
-import Hero from "../Hero";
-
-/* ---------------- Lazy Loaded Sections (Below the fold) ---------------- */
-
-const About = dynamic(() => import("../About"), { ssr: false });
-const SkillsSection = dynamic(() => import("./SkillsSections"), { ssr: false });
-const CompanyProjects = dynamic(() => import("../Projects/CompanyProjects"), {
-  ssr: false,
-});
-const PersonalProjects = dynamic(() => import("../Projects/PersonalProjects"), {
-  ssr: false,
-});
-const ResumeSection = dynamic(() => import("./ResumeSection"), {
-  ssr: false,
-});
-const Contact = dynamic(() => import("../Contact"), { ssr: false });
-
-/* ---------------------------------------------------------------------- */
+import { Header } from "../layout";
+import { Footer } from "../layout";
+import { sections } from "@/lib/routes";
 
 export default function MainPage() {
   const [showSplash, setShowSplash] = useState(true);
@@ -57,18 +39,13 @@ export default function MainPage() {
       {/* ---------------- Main Content ---------------- */}
       {!showSplash && (
         <div className="fade-in">
-          <Header />
-
           {/* Critical (Above the fold) */}
-          <Hero />
-
-          {/* Below the fold (Lazy loaded) */}
-          <About />
-          <SkillsSection />
-          <CompanyProjects />
-          <PersonalProjects />
-          <ResumeSection />
-          <Contact />
+          <Header />
+          {/* Below the fold (Lazy loaded via DRY mapping) */}
+          {sections.map(({ name, Component }) => (
+            <Component key={name} />
+          ))}
+          <Footer />
         </div>
       )}
     </main>
