@@ -8,7 +8,9 @@ import { sections } from "@/lib/routes";
 
 export default function MainPage() {
   const [showSplash, setShowSplash] = useState(true);
-
+  console.log("Header:", Header);
+  console.log("Footer:", Footer);
+  console.log("sections:", sections);
   return (
     <main className="min-h-screen bg-linear-to-br from-black via-slate-900 to-slate-800 text-white">
       {/* ---------------- Splash Screen ---------------- */}

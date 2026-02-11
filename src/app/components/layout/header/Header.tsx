@@ -31,7 +31,7 @@ export default function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
     >
-      <div className="max-w-3xl mx-auto flex justify-between items-center py-4 px-6">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo */}
         <motion.div
           className="text-xl font-bold cursor-pointer"
