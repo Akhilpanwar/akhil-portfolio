@@ -16,11 +16,17 @@ export default function Header() {
   }, []);
 
   const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-    setOpen(false);
-  };
+    const id = href.replace("#", "");
 
+    setOpen(false);
+
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
   return (
     <motion.header
       className={`sticky top-0 left-0 w-full z-50 transition-all duration-300 ${
