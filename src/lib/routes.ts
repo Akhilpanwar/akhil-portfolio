@@ -47,6 +47,6 @@ export const sections = [
   //     {
   //       ssr: false,
   //     },
-    ),
-  },
+  //   ),
+  // },
 ];
