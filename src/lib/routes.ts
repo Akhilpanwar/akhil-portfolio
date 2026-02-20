@@ -40,13 +40,5 @@ export const sections = [
       },
     ),
   },
-  // {
-  //   name: "ResumeSection",
-  //   Component: dynamic(
-  //     () => import("@/app/components/section/resume/ResumeSection"),
-  //     {
-  //       ssr: false,
-  //     },
-  //   ),
-  // },
+
 ];
