@@ -1,5 +1,5 @@
 export const ABOUT_PARAGRAPHS = [
-  `Frontend Developer with 4 years of experience building scalable, responsive,
+  `Frontend Developer with 3 years of experience building scalable, responsive,
 high-performance web applications using React.js, Next.js, JavaScript (ES6+),
 HTML5, and CSS3. Strong expertise in React Hooks, component-driven architecture,
 and Redux Toolkit for predictable state management.
