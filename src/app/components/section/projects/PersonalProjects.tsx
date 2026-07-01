@@ -24,13 +24,7 @@ const personalProjects = [
     description:
       "A drag-and-drop to-do list application demonstrating advanced React interactions and UX.",
   },
-  {
-    name: "gemini-clone",
-    url: "https://gemini-app-12e3.vercel.app",
-    img: "./images/projects/gemini.jpg",
-    description:
-      "A Gemini-inspired application with OTP-based authentication. For demo purposes, the OTP can be viewed in the browser console during login, showcasing the complete authentication flow and frontend handling.",
-  },
+
   {
     name: "Task Manager",
     url: "https://task-manager-seven-woad-54.vercel.app/",
